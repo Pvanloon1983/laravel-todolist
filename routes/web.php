@@ -10,7 +10,7 @@ Route::get('/', function() {
     ]);
 })->name('home.index');
 
-Route::get('/todo/add', function() {
+Route::get('/todos/create', function() {
     return view('create');
 })->name('todos.create');
 
@@ -27,7 +27,7 @@ Route::post('/todos', function (Request $request) {
     return redirect()->route('home.index')->with('success', 'Todo item created successfully!');
 })->name('todos.store');
 
-Route::delete('/todo/{todo}', function (Todo $todo) {
+Route::delete('/todos/{todo}', function (Todo $todo) {
     $todo->delete();
 
     return redirect()->route('home.index')
