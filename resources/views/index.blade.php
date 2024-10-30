@@ -29,8 +29,9 @@
                 <tr>
                     <td>{{ $item->id }}</td>
                     <td>{{ $item->text }}</td>
-                    <td><button class="btn btn-primary">View</button></td>
-                    <td><button class="btn btn-warning">Edit</button></td>
+                    <td><a href="{{ route('todos.show', $item->id) }}"><button class="btn btn-primary">View</button></a></td>
+                    <td><a href="{{ route('todos.edit', $item->id) }}"><button class="btn btn-warning">Edit</button></a>
+                    </td>
                     <td>
                         <form action="{{ route('todo.destroy', $item->id) }}" method="POST" style="display:inline;">
                             @csrf
